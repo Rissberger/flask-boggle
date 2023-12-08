@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boggle Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <section id="boggle">
+    
+  </section>
+    <table>
+        {% for row in board %}
+            <tr>
+                {% for letter in row %}
+                    <td>{{ letter }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <form method="post" action="{{ url_for('index') }}">
+        <input type="text" name="guess" placeholder="Enter your guess">
+        <input type="submit" value="Submit Guess">
+    </form>
+    <p>High Score: 
+        <b>{{ highscore }}</b> 
+        in {{ nplays }} plays
+      </p>
+
+      <p>
+        Score: <b class="score">0</b>
+        Seconds Left: <b class="timer"></b>
+      </p>
+
+      
+
+      <p class="msg">
+
+    </p>
+
+      <ul class="words">
+
+    </ul>
+
+    </section>
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script src="/static/boggle.js"></script>
+    <script>
+      let game = new BoggleGame("boggle", 60);
+    </script>
+  </body>
+</html>
